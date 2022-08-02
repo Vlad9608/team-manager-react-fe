@@ -1,26 +1,6 @@
 {
   "teams": [
     {
-      "naming": "Chelsea",
-      "wins": 20,
-      "id": 1
-    },
-    {
-      "naming": "Arsenal",
-      "wins": 15,
-      "id": 2
-    },
-    {
-      "naming": "",
-      "wins": "",
-      "id": 3
-    },
-    {
-      "naming": "",
-      "wins": "",
-      "id": 4
-    },
-    {
       "naming": "3333",
       "wins": "34353356",
       "id": 5

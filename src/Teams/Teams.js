@@ -1,24 +1,30 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { REST_TEAMS } from "../config/config";
 
 const Teams = () => {
-  const baseURL = "http://localhost:8000/teams";
-  const [team, setTeam] = useState("");
+  const [teams, setTeams] = useState("");
+
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setTeam(response.data);
-    });
+    getTeam();
   }, []);
+
+  const getTeam = () => {
+    REST_TEAMS.get().then((response) => {
+      setTeams(response.data);
+    })
+  }
+
   const deleteTeam = (teamId) => {
-    axios.delete(`${baseURL}/teamId`).then(() => {
+    REST_TEAMS.delete(`/${teamId}`).then(() => {
       alert("Post deleted!");
-      setTeam(null);
+      getTeam()
     });
   };
+
   return (
     <div>
-      {team &&
-        team.map((team) => (
+      {teams &&
+        teams.map((team) => (
           <div>
             <div>{team.naming}</div>
             <div>{team.wins}</div>
